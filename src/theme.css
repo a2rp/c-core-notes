@@ -1,0 +1,68 @@
+/* theme.css */
+/* C Core Notes Theme - Terminal Inspired */
+
+:root {
+    /* Base */
+    --color-bg: #0c0f14;
+    --color-surface: #141922;
+    --color-surface-2: #1b2230;
+
+    /* Primary Accent - Compiler Green */
+    --color-primary: #2ecc71;
+    --color-primary-hover: #4ade80;
+
+    /* Text */
+    --color-text-primary: #e6edf3;
+    --color-text-secondary: #b6c2cf;
+    --color-text-muted: #7d8590;
+
+    /* Borders */
+    --color-border: #2a3242;
+    --color-border-light: #364055;
+
+    /* Links */
+    --color-link: #2ecc71;
+    --color-link-hover: #4ade80;
+
+    /* States */
+    --color-success: #2ecc71;
+    --color-error: #ff5f56;
+    --color-warning: #f1c40f;
+
+    /* Code blocks - Dark terminal */
+    --color-code-bg: #0a0d12;
+    --color-code-border: #2a3242;
+
+    /* Shadow */
+    --color-shadow: rgba(0, 0, 0, 0.7);
+}
+
+/* Light Mode - Clean textbook style */
+
+html[data-theme="light"] {
+    --color-bg: #ffffff;
+    --color-surface: #f4f6f8;
+    --color-surface-2: #e8edf2;
+
+    --color-primary: #0a7d3b;
+    --color-primary-hover: #0f9d58;
+
+    --color-text-primary: #111827;
+    --color-text-secondary: #374151;
+    --color-text-muted: #6b7280;
+
+    --color-border: #d1d5db;
+    --color-border-light: #e5e7eb;
+
+    --color-link: #0a7d3b;
+    --color-link-hover: #0f9d58;
+
+    --color-success: #15803d;
+    --color-error: #b91c1c;
+    --color-warning: #a16207;
+
+    --color-code-bg: #f3f4f6;
+    --color-code-border: #d1d5db;
+
+    --color-shadow: rgba(0, 0, 0, 0.08);
+}
