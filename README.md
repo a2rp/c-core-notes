@@ -1,61 +1,40 @@
 # C Core Notes
 
-A single-page, at-a-glance revision project for core C programming concepts.
+A focused React and Vite revision workspace for core C programming concepts, from syntax and control flow to pointers, memory, files, and data structures.
 
-This project is designed as a fast reference and structured summary sheet covering essential C topics without unnecessary depth.  
-It focuses on clarity, fundamentals, memory thinking, and practical usage for beginners and interview revision.
+![C Core Notes preview](image.png)
 
----
+## Features
 
-![alt text](image.png)
+- Modular topic sections for quick revision
+- Expandable notes with practical C examples
+- Dark and light themes
+- Responsive layout with keyboard-friendly controls
+- Topics covering pointers, memory, arrays, strings, files, bitwise operations, and best practices
 
----
-
-## Purpose
-
-- Quick revision before interviews
-- Rapid recall of core C syntax and concepts
-- Clear mental model of memory, pointers, and program flow
-- Practical, production-focused reminders for writing safe C
-- Strong foundation for DSA, OS, and low-level programming
-
-## Coverage
-
-- C basics and program structure
-- Compilation flow - preprocess compile link execute
-- Variables, constants, and data types
-- Input output - printf and scanf
-- Operators and expressions
-- Control flow - if else switch loops break continue
-- Functions and recursion
-- Scope and storage classes - auto static extern register
-- Arrays and strings
-- Pointers - pointer arithmetic, pointer to pointer, common pointer bugs
-- Structures and unions
-- Dynamic memory allocation - malloc calloc realloc free
-- File handling - fopen modes, reading and writing, EOF
-- Preprocessor - macros and conditional compilation
-- Bitwise operations and bit manipulation
-- Common mistakes and best practices
-
-## Tech Stack
-
-- React
-- Vite
-- styled-components
-
-## Project Type
-
-Single page only  
-Section-based navigation  
-Searchable and expandable content  
-No blog-style content, only structured notes
-
-Each topic is modular and collapsible for fast scanning.
-
-## Run Locally
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
+
+Build with `npm run build` and deploy to GitHub Pages with `npm run deploy`.
+
+## Links
+
+- Live: https://a2rp.github.io/c-core-notes/
+- Repository: https://github.com/a2rp/c-core-notes
+- Portfolio: https://www.ashishranjan.net/
+- GitHub: https://github.com/a2rp
+- CodePen: https://codepen.io/ash1198
+- LinkedIn: https://www.linkedin.com/in/aashishranjan
+- Facebook: https://www.facebook.com/theash.ashish/
+- YouTube: https://www.youtube.com/@ashishranjan-ashz?sub_confirmation=1
+- Email: mailto:ash.ranjan09@gmail.com
+
+## Support
+
+- Support: https://a2rp-donation-page.netlify.app/
+- Buy Me a Coffee: https://buymeacoffee.com/a2rp
+- Patreon: https://www.patreon.com/a2rp
