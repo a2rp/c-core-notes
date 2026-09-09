@@ -8,7 +8,7 @@ import {
 } from "react-icons/fi";
 
 const CControlFlow = () => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const toggle = () => setOpen((v) => !v);
 

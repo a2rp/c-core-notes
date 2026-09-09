@@ -1,8 +1,9 @@
 // App.jsx
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Styled } from "./App.styled";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import { FiArrowUp } from "react-icons/fi";
 
 import AboutC from "./components/aboutC";
 
@@ -38,13 +39,20 @@ const topics = [
 
 const App = () => {
     const [activeTopic, setActiveTopic] = useState("about");
+    const mainRef = useRef(null);
     const ActiveTopic = topics.find(([id]) => id === activeTopic)?.[2] || AboutC;
+
+    useEffect(() => {
+        // Each topic starts at the beginning instead of inheriting the old scroll position.
+        mainRef.current?.scrollTo({ top: 0, behavior: "auto" });
+    }, [activeTopic]);
+
     return (
         <Styled.Wrapper>
             <Styled.Header>
                 <Header />
             </Styled.Header>
-            <Styled.Main>
+            <Styled.Main ref={mainRef}>
                 <div className="workspaceLayout">
                     <aside className="sideMenu" aria-label="C notes topics">
                         <p className="menuLabel">Study guide</p>
@@ -60,6 +68,16 @@ const App = () => {
                         <ActiveTopic />
                     </section>
                 </div>
+
+                <button
+                    type="button"
+                    className="scrollTopButton"
+                    aria-label="Scroll content to top"
+                    title="Scroll to top"
+                    onClick={() => mainRef.current?.scrollTo({ top: 0, behavior: "smooth" })}
+                >
+                    <FiArrowUp />
+                </button>
 
                 <div className="footerWrapper">
                     <Footer />

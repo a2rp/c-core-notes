@@ -3,7 +3,7 @@ import { Styled } from "./styled";
 import { FiChevronDown, FiChevronRight, FiCpu, FiCode } from "react-icons/fi";
 
 const Operators = () => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const toggle = () => setOpen((v) => !v);
 

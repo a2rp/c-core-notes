@@ -33,7 +33,10 @@ export const Styled = {
             position: sticky;
             top: 18px;
             align-self: start;
-            max-height: calc(100vh - 36px);
+            /* Keep the complete menu inside the visible area below the header. */
+            height: calc(100vh - 60px - 36px);
+            max-height: calc(100vh - 60px - 36px);
+            box-sizing: border-box;
             overflow-y: auto;
             padding: 16px 10px;
             border: 1px solid var(--color-border);
@@ -45,10 +48,31 @@ export const Styled = {
         .sideMenu button { width: 100%; padding: 10px 12px; border: 1px solid transparent; border-radius: 10px; background: transparent; color: var(--color-text-secondary); text-align: left; cursor: pointer; font: inherit; }
         .sideMenu button:hover, .sideMenu button.active { background: var(--color-primary); border-color: var(--color-primary); color: #07110b; }
         .contentWrapper { min-width: 0; padding: 4px 0; }
+        .scrollTopButton {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 10;
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--color-border);
+            border-radius: 50%;
+            background: var(--color-surface);
+            color: var(--color-text-primary);
+            cursor: pointer;
+            box-shadow: 0 8px 20px var(--color-shadow);
+        }
+        .scrollTopButton:hover {
+            background: var(--color-primary);
+            color: #07110b;
+        }
         @media (max-width: 820px) {
             .workspaceLayout { grid-template-columns: 1fr; padding: 14px; }
-            .sideMenu { position: static; max-height: none; }
+            .sideMenu { position: static; height: auto; max-height: none; }
             .sideMenu nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .scrollTopButton { right: 16px; bottom: 16px; }
         }
 
         .footerWrapper {
