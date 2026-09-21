@@ -1,4 +1,3 @@
-// components/footer/styled.js
 import styled from "styled-components";
 
 export const Styled = {
@@ -6,35 +5,49 @@ export const Styled = {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 12px;
-        padding: 15px;
+        gap: 18px;
+        padding: 18px 15px 28px;
         border-top: 1px solid var(--color-border);
-
-        font-size: 12px;
         color: var(--color-text-muted);
+        font-size: 12px;
 
-        .right a {
-            color: var(--color-text-secondary);
-            font-weight: 600;
-        }
-
-        .right a:hover {
+        .copyright a {
             color: var(--color-text-primary);
+            font-weight: 700;
         }
 
-        a {
-            color: var(--color-text-secondary);
-            font-weight: 600;
-        }
-
-        a:hover {
-            color: var(--color-text-primary);
-        }
-
-        @media (width < 600px) {
-            flex-direction: column;
+        @media (width < 680px) {
             align-items: flex-start;
-            gap: 6px;
+            flex-direction: column;
+        }
+    `,
+    Links: styled.nav`
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+
+        @media (width < 680px) {
+            justify-content: flex-start;
+        }
+    `,
+    IconLink: styled.a`
+        width: 34px;
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--color-border);
+        border-radius: 9px;
+        color: var(--color-text-secondary);
+        transition: color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+
+        &:hover,
+        &:focus-visible {
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+            box-shadow: 0 0 16px var(--color-shadow);
+            text-decoration: none;
         }
     `,
 };

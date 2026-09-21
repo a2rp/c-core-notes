@@ -39,13 +39,24 @@ const topics = [
 
 const App = () => {
     const [activeTopic, setActiveTopic] = useState("about");
+    const [showScrollTop, setShowScrollTop] = useState(false);
     const mainRef = useRef(null);
     const ActiveTopic = topics.find(([id]) => id === activeTopic)?.[2] || AboutC;
 
     useEffect(() => {
         // Each topic starts at the beginning instead of inheriting the old scroll position.
         mainRef.current?.scrollTo({ top: 0, behavior: "auto" });
+        setShowScrollTop(false);
     }, [activeTopic]);
+
+    useEffect(() => {
+        const mainElement = mainRef.current;
+        if (!mainElement) return undefined;
+        const handleScroll = () => setShowScrollTop(mainElement.scrollTop > 240);
+        handleScroll();
+        mainElement.addEventListener("scroll", handleScroll, { passive: true });
+        return () => mainElement.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <Styled.Wrapper>
@@ -69,15 +80,17 @@ const App = () => {
                     </section>
                 </div>
 
-                <button
-                    type="button"
-                    className="scrollTopButton"
-                    aria-label="Scroll content to top"
-                    title="Scroll to top"
-                    onClick={() => mainRef.current?.scrollTo({ top: 0, behavior: "smooth" })}
-                >
-                    <FiArrowUp />
-                </button>
+                {showScrollTop && (
+                    <button
+                        type="button"
+                        className="scrollTopButton"
+                        aria-label="Scroll content to top"
+                        title="Scroll to top"
+                        onClick={() => mainRef.current?.scrollTo({ top: 0, behavior: "smooth" })}
+                    >
+                        <FiArrowUp aria-hidden="true" />
+                    </button>
+                )}
 
                 <div className="footerWrapper">
                     <Footer />
