@@ -2,7 +2,7 @@
 
 A focused React and Vite revision workspace for core C programming concepts, from syntax and control flow to pointers, memory, files, and data structures.
 
-![C Core Notes preview](image.png)
+![C Core Notes preview](screenshot.png)
 
 ## Features
 
