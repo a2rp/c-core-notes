@@ -3,35 +3,35 @@
 
 :root {
     /* Base */
-    --color-bg: #0c0f14;
-    --color-surface: #141922;
-    --color-surface-2: #1b2230;
+    --color-bg: #0f0f0f;
+    --color-surface: #191919;
+    --color-surface-2: #222222;
 
     /* Primary Accent - Compiler Green */
-    --color-primary: #2ecc71;
-    --color-primary-hover: #4ade80;
+    --color-primary: #b3b3b3;
+    --color-primary-hover: #c4c4c4;
 
     /* Text */
-    --color-text-primary: #e6edf3;
-    --color-text-secondary: #b6c2cf;
-    --color-text-muted: #7d8590;
+    --color-text-primary: #ececec;
+    --color-text-secondary: #c1c1c1;
+    --color-text-muted: #848484;
 
     /* Borders */
-    --color-border: #2a3242;
-    --color-border-light: #364055;
+    --color-border: #323232;
+    --color-border-light: #404040;
 
     /* Links */
-    --color-link: #2ecc71;
-    --color-link-hover: #4ade80;
+    --color-link: #b3b3b3;
+    --color-link-hover: #c4c4c4;
 
     /* States */
-    --color-success: #2ecc71;
-    --color-error: #ff5f56;
-    --color-warning: #f1c40f;
+    --color-success: #b3b3b3;
+    --color-error: #959595;
+    --color-warning: #c9c9c9;
 
     /* Code blocks - Dark terminal */
-    --color-code-bg: #0a0d12;
-    --color-code-border: #2a3242;
+    --color-code-bg: #0d0d0d;
+    --color-code-border: #323232;
 
     /* Shadow */
     --color-shadow: rgba(0, 0, 0, 0.7);
@@ -41,28 +41,28 @@
 
 html[data-theme="light"] {
     --color-bg: #ffffff;
-    --color-surface: #f4f6f8;
-    --color-surface-2: #e8edf2;
+    --color-surface: #f6f6f6;
+    --color-surface-2: #ececec;
 
-    --color-primary: #0a7d3b;
-    --color-primary-hover: #0f9d58;
+    --color-primary: #6c6c6c;
+    --color-primary-hover: #898989;
 
-    --color-text-primary: #111827;
-    --color-text-secondary: #374151;
-    --color-text-muted: #6b7280;
+    --color-text-primary: #181818;
+    --color-text-secondary: #404040;
+    --color-text-muted: #727272;
 
-    --color-border: #d1d5db;
-    --color-border-light: #e5e7eb;
+    --color-border: #d5d5d5;
+    --color-border-light: #e7e7e7;
 
-    --color-link: #0a7d3b;
-    --color-link-hover: #0f9d58;
+    --color-link: #6c6c6c;
+    --color-link-hover: #898989;
 
-    --color-success: #15803d;
-    --color-error: #b91c1c;
-    --color-warning: #a16207;
+    --color-success: #6f6f6f;
+    --color-error: #5e5e5e;
+    --color-warning: #707070;
 
-    --color-code-bg: #f3f4f6;
-    --color-code-border: #d1d5db;
+    --color-code-bg: #f4f4f4;
+    --color-code-border: #d5d5d5;
 
     --color-shadow: rgba(0, 0, 0, 0.08);
 }

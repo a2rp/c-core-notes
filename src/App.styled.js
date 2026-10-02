@@ -46,7 +46,7 @@ export const Styled = {
         .menuLabel { margin: 0 10px 12px; color: var(--color-text-muted); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
         .sideMenu nav { display: grid; gap: 5px; }
         .sideMenu button { width: 100%; padding: 10px 12px; border: 1px solid transparent; border-radius: 10px; background: transparent; color: var(--color-text-secondary); text-align: left; cursor: pointer; font: inherit; }
-        .sideMenu button:hover, .sideMenu button.active { background: var(--color-primary); border-color: var(--color-primary); color: #07110b; }
+        .sideMenu button:hover, .sideMenu button.active { background: var(--color-primary); border-color: var(--color-primary); color: #0f0f0f; }
         .contentWrapper { min-width: 0; padding: 4px 0; }
         .scrollTopButton {
             position: fixed;
@@ -66,7 +66,7 @@ export const Styled = {
         }
         .scrollTopButton:hover {
             background: var(--color-primary);
-            color: #07110b;
+            color: #0f0f0f;
         }
         @media (max-width: 820px) {
             .workspaceLayout { grid-template-columns: 1fr; padding: 14px; }
