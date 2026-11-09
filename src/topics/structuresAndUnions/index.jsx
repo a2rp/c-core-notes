@@ -39,9 +39,9 @@ const StructuresAndUnions = () => {
             <div className={`topicBody ${open ? "open" : ""}`}>
                 <div className="intro">
                     <p className="p">
-                        Structures and unions let you group related data into a
-                        single type. struct stores all members separately. union
-                        shares memory between members.
+                        Structures and unions group related data into one type.
+                        A structure stores each member as a distinct subobject;
+                        union members overlap in the same storage.
                     </p>
                 </div>
 
@@ -242,9 +242,11 @@ int main() {
                 <div className="section">
                     <h3 className="h3">Union concept</h3>
                     <p className="p">
-                        union is like struct, but all members share the same
-                        memory location. Only one member should be used at a
-                        time, because writing to one overwrites the others.
+                        A union provides storage for each member at the same
+                        location. After storing a value in one member, track
+                        which member is active: reading another member
+                        reinterprets the stored representation and may not give
+                        a portable or meaningful value.
                     </p>
 
                     <div className="codeBlock">
@@ -271,8 +273,8 @@ int main() {
   d.ch = 'A';
   printf("%c\\n", d.ch); // output - A
 
-  // after setting d.ch, d.n is not reliable anymore
-  // output - undefined value if printed
+  // d.ch is the member currently holding the value.
+  // Do not assume reading d.n now produces a portable value.
 
   return 0;
 }`}
@@ -286,7 +288,8 @@ int main() {
                     <p className="p">
                         struct allocates separate memory for each member, so all
                         values can exist together. union shares memory across
-                        members, so only one value should be used at a time.
+                        members, so track which member currently holds the
+                        value you intend to use.
                     </p>
 
                     <ul className="bullets">
@@ -297,7 +300,8 @@ int main() {
                         </li>
                         <li>
                             <span className="dot" />
-                            union - size is max of member sizes
+                            union - large enough for its largest member, with
+                            any required alignment padding
                         </li>
                         <li>
                             <span className="dot" />
@@ -305,7 +309,7 @@ int main() {
                         </li>
                         <li>
                             <span className="dot" />
-                            union - one field at a time
+                            union - track the member whose value is active
                         </li>
                     </ul>
                 </div>

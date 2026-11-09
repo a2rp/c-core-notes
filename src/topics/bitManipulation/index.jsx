@@ -69,13 +69,13 @@ const BitManipulation = () => {
                             {`#include <stdio.h>
 
 int main() {
-  int a = 5;  // 0101
-  int b = 3;  // 0011
+  unsigned int a = 5u;  // low bits - 0101
+  unsigned int b = 3u;  // low bits - 0011
 
-  printf("%d\\n", a & b);  // 0001
-  printf("%d\\n", a | b);  // 0111
-  printf("%d\\n", a ^ b);  // 0110
-  printf("%d\\n", ~a);     // bitwise NOT
+  printf("%u\\n", a & b);  // 1
+  printf("%u\\n", a | b);  // 7
+  printf("%u\\n", a ^ b);  // 6
+  printf("%u\\n", ~a);     // every bit is inverted
 
   return 0;
 }
@@ -83,13 +83,13 @@ int main() {
 // output - 1
 // output - 7
 // output - 6
-// output - depends on integer size (two's complement)`}
+// output - ~a depends on the width of unsigned int`}
                         </pre>
                     </div>
 
                     <div className="hint">
-                        ~a flips all bits. The numeric result depends on signed
-                        representation (two's complement). For beginners, treat
+                        With unsigned int, ~a flips every value bit; its decimal
+                        result depends on the type's range. For beginners, treat
                         it as "invert all bits".
                     </div>
                 </div>

@@ -275,7 +275,8 @@ if (p == NULL) {
                         <span className="dangerIcon">
                             <FiAlertTriangle />
                         </span>
-                        Never dereference a null pointer - it causes a crash.
+                        Never dereference a null pointer: it is undefined
+                        behavior and may crash, but a crash is not guaranteed.
                     </div>
                 </div>
 
@@ -295,7 +296,7 @@ if (p == NULL) {
                             Example
                         </div>
                         <pre className="code">
-                            {`int *p = (int *)malloc(sizeof(int));
+                            {`int *p = malloc(sizeof *p);
 *p = 42;
 
 free(p);
@@ -313,9 +314,10 @@ p = NULL; // fix - avoid dangling pointer
                 <div className="section">
                     <h3 className="h3">Wild pointer</h3>
                     <p className="p">
-                        A wild pointer is an uninitialized pointer. It points to
-                        a random address. Dereferencing it can crash or corrupt
-                        memory.
+                        An uninitialized pointer has an indeterminate value.
+                        Reading or dereferencing it can cause undefined
+                        behavior; it is not safe to assume it contains a
+                        particular address.
                     </p>
 
                     <div className="danger">

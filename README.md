@@ -11,6 +11,7 @@ A focused React and Vite revision workspace for core C programming concepts, fro
 - Dark and light themes
 - Responsive layout with keyboard-friendly controls
 - Topics covering pointers, memory, arrays, strings, files, bitwise operations, and best practices
+- Examples target C99 or later. Notes call out implementation and standard-version differences when they affect behavior.
 
 ## Run locally
 

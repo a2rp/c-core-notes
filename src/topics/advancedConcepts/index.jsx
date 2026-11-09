@@ -326,7 +326,7 @@ int main() {
 }
 
 /*
-output - unpredictable garbage value
+no defined output - reading the uninitialized value has undefined behavior
 */`}
                         </pre>
                     </div>
@@ -346,10 +346,11 @@ output - unpredictable garbage value
                         Segmentation fault concept
                     </h3>
                     <p className="p">
-                        A segmentation fault happens when your program tries to
-                        access memory it is not allowed to access. This often
-                        comes from invalid pointers, freed memory usage, or
-                        writing outside array bounds.
+                        A segmentation fault is one possible operating system
+                        response to an invalid memory access. Dereferencing a
+                        null or dangling pointer and writing outside an array
+                        are undefined behavior; they may crash, but a crash is
+                        not guaranteed by the C standard.
                     </p>
 
                     <div className="codeBlock">
@@ -364,13 +365,13 @@ output - unpredictable garbage value
 
 int main() {
   int *p = NULL;
-  *p = 10; // crash - invalid memory access
+  *p = 10; // undefined behavior; it may crash
   printf("%d\\n", *p);
   return 0;
 }
 
 /*
-output - program crashes (segmentation fault)
+no defined output - this undefined behavior may terminate the program
 */`}
                         </pre>
                     </div>

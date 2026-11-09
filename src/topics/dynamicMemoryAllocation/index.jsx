@@ -55,20 +55,23 @@ const DynamicMemoryAllocation = () => {
                         Heap vs stack memory
                     </h3>
                     <p className="p">
-                        The stack is fast and automatic. Local variables and
-                        function calls live on the stack. The heap is for
-                        dynamic memory that you allocate manually using malloc
-                        and friends. Heap memory stays until you free it.
+                        In a common implementation model, function calls and
+                        automatic local variables use a stack, while malloc and
+                        related functions provide dynamically allocated memory.
+                        The C standard specifies storage duration rather than
+                        requiring a physical stack or heap. Allocated storage
+                        remains available until it is released with free.
                     </p>
 
                     <ul className="bullets">
                         <li>
                             <span className="dot" />
-                            stack - automatic, function scoped, freed on return
+                            automatic storage duration - local objects usually
+                            end when their block exits
                         </li>
                         <li>
                             <span className="dot" />
-                            heap - manual, flexible size, must free yourself
+                            allocated storage duration - released with free
                         </li>
                     </ul>
                 </div>
@@ -94,7 +97,7 @@ const DynamicMemoryAllocation = () => {
 
 int main() {
   int n = 3;
-  int *arr = (int*)malloc(n * sizeof(int));
+  int *arr = malloc((size_t)n * sizeof *arr);
 
   if (arr == NULL) {
     printf("Allocation failed\\n");
@@ -144,7 +147,7 @@ int main() {
 
 int main() {
   int n = 4;
-  int *arr = (int*)calloc(n, sizeof(int));
+  int *arr = calloc((size_t)n, sizeof *arr);
 
   if (arr == NULL) {
     printf("Allocation failed\\n");
@@ -189,7 +192,7 @@ int main() {
 
 int main() {
   int n = 2;
-  int *arr = (int*)malloc(n * sizeof(int));
+  int *arr = malloc((size_t)n * sizeof *arr);
 
   if (arr == NULL) return 1;
 
@@ -197,7 +200,7 @@ int main() {
   arr[1] = 15;
 
   int newN = 4;
-  int *temp = (int*)realloc(arr, newN * sizeof(int));
+  int *temp = realloc(arr, (size_t)newN * sizeof *arr);
 
   if (temp == NULL) {
     // realloc failed - arr is still valid here
@@ -239,7 +242,7 @@ int main() {
                         free
                     </h3>
                     <p className="p">
-                        free releases heap memory that you allocated. After
+                        free releases dynamically allocated memory. After
                         freeing, set the pointer to NULL to avoid accidentally
                         using freed memory.
                     </p>
@@ -252,7 +255,7 @@ int main() {
                             Example - free and null
                         </div>
                         <pre className="code">
-                            {`int *p = (int*)malloc(sizeof(int));
+                            {`int *p = malloc(sizeof *p);
 if (p == NULL) return 1;
 
 *p = 99;
@@ -293,12 +296,12 @@ p = NULL; // good habit
                         </div>
                         <pre className="code">
                             {`// leak - allocated but never freed
-int *p = (int*)malloc(100 * sizeof(int));
+int *p = malloc(100 * sizeof *p);
 if (p == NULL) return 1;
 // no free(p) here
 
 // fixed
-int *q = (int*)malloc(100 * sizeof(int));
+int *q = malloc(100 * sizeof *q);
 if (q == NULL) return 1;
 free(q);
 q = NULL;`}

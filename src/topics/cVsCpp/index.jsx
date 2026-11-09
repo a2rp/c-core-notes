@@ -39,10 +39,10 @@ const CVsCpp = () => {
             <div className={`topicBody ${open ? "open" : ""}`}>
                 <div className="intro">
                     <p className="p">
-                        C and C++ are closely related languages, but they follow
-                        different programming paradigms. C focuses on procedural
-                        programming, while C++ adds object oriented features on
-                        top of C.
+                        C and C++ share historical roots but are distinct
+                        languages with separate standards. C is primarily
+                        procedural; C++ supports procedural, object-oriented,
+                        and generic programming.
                     </p>
                 </div>
 
@@ -57,8 +57,8 @@ const CVsCpp = () => {
 
                     <ul className="bullets">
                         <li>
-                            <span className="dot" />C supports procedural
-                            programming only.
+                            <span className="dot" />C is primarily organized
+                            around functions and data.
                         </li>
                         <li>
                             <span className="dot" />
@@ -66,8 +66,8 @@ const CVsCpp = () => {
                             programming.
                         </li>
                         <li>
-                            <span className="dot" />C does not support classes
-                            and objects.
+                            <span className="dot" />C has no built-in class,
+                            inheritance, or member-function mechanism.
                         </li>
                         <li>
                             <span className="dot" />
@@ -75,12 +75,12 @@ const CVsCpp = () => {
                             encapsulation.
                         </li>
                         <li>
-                            <span className="dot" />C uses printf and scanf for
-                            IO.
+                            <span className="dot" />The examples use C's stdio
+                            functions, such as printf and scanf.
                         </li>
                         <li>
                             <span className="dot" />
-                            C++ uses cout and cin for IO.
+                            The examples use C++ streams, such as cout and cin.
                         </li>
                     </ul>
 
@@ -191,8 +191,9 @@ int main() {
                     </div>
 
                     <div className="hint">
-                        C++ is often described as an extension of C, but modern
-                        C++ is much more powerful and feature rich than C.
+                        C++ shares its history with C, but it is not a strict
+                        superset or a drop-in replacement. Code may need changes
+                        when moving between the languages.
                     </div>
                 </div>
             </div>

@@ -57,8 +57,8 @@ printf("%s", name);
                 <div className="section">
                     <h3>Null character</h3>
                     <p className="p">
-                        Every C string ends with '\0'. This tells the compiler
-                        where the string stops.
+                        Every C string ends with '\0'. String functions use
+                        this character to find where the string stops.
                     </p>
 
                     <pre className="code">
@@ -74,19 +74,21 @@ printf("%s", word);
                 <div className="section">
                     <h3>gets and fgets</h3>
                     <p className="p">
-                        gets is unsafe and removed in modern C. Always use fgets
-                        to avoid buffer overflow.
+                        gets cannot limit input to the buffer size and was
+                        removed in C11. fgets reads at most one less than the
+                        buffer size and adds a null terminator when it reads
+                        input; check its return value before using the buffer.
                     </p>
 
                     <pre className="code">
                         {`char str[20];
 
-fgets(str, sizeof(str), stdin);
-
-printf("%s", str);
+if (fgets(str, sizeof(str), stdin) != NULL) {
+    printf("%s", str);
+}
 
 // input - Hello
-// output - Hello`}
+// output - Hello (when input succeeds)`}
                     </pre>
                 </div>
 
@@ -112,16 +114,21 @@ puts(msg);
                         String handling functions - strlen strcpy strcat strcmp
                     </h3>
                     <p className="p">
-                        These functions are available in string.h.
+                        These functions are declared in string.h. Their inputs
+                        must be null-terminated strings, and destination arrays
+                        must have room for the resulting string and its '\0'.
+                        strlen returns size_t; strcmp reports ordering with a
+                        negative, zero, or positive value.
                     </p>
 
                     <pre className="code">
-                        {`#include <string.h>
+                        {`#include <stdio.h>
+#include <string.h>
 
 char a[20] = "Hello";
 char b[] = "World";
 
-printf("%lu", strlen(a));
+printf("%zu", strlen(a));
 // output - 5
 
 strcpy(a, b);

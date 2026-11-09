@@ -78,20 +78,33 @@ struct Node {
   struct Node* next;
 };
 
-struct Node* pushFront(struct Node* head, int val) {
-  struct Node* n = (struct Node*)malloc(sizeof(struct Node));
+int pushFront(struct Node** head, int val) {
+  struct Node* n = malloc(sizeof *n);
+  if (n == NULL) return 0;
   n->data = val;
-  n->next = head;
-  return n;
+  n->next = *head;
+  *head = n;
+  return 1;
+}
+
+void freeList(struct Node* head) {
+  while (head != NULL) {
+    struct Node* next = head->next;
+    free(head);
+    head = next;
+  }
 }
 
 int main() {
   struct Node* head = NULL;
-  head = pushFront(head, 10);
-  head = pushFront(head, 20);
+  if (!pushFront(&head, 10) || !pushFront(&head, 20)) {
+    freeList(head);
+    return 1;
+  }
 
   printf("%d\\n", head->data);       // output - 20
   printf("%d\\n", head->next->data); // output - 10
+  freeList(head);
   return 0;
 }`}
                         </pre>
@@ -249,20 +262,40 @@ struct TNode {
 };
 
 struct TNode* newNode(int val) {
-  struct TNode* n = (struct TNode*)malloc(sizeof(struct TNode));
+  struct TNode* n = malloc(sizeof *n);
+  if (n == NULL) return NULL;
   n->data = val;
   n->left = NULL;
   n->right = NULL;
   return n;
 }
 
+void freeTree(struct TNode* node) {
+  if (node == NULL) return;
+  freeTree(node->left);
+  freeTree(node->right);
+  free(node);
+}
+
 int main() {
   struct TNode* root = newNode(10);
+  if (root == NULL) return 1;
+
   root->left = newNode(5);
+  if (root->left == NULL) {
+    freeTree(root);
+    return 1;
+  }
+
   root->right = newNode(15);
+  if (root->right == NULL) {
+    freeTree(root);
+    return 1;
+  }
 
   printf("%d\\n", root->data);       // output - 10
   printf("%d\\n", root->left->data); // output - 5
+  freeTree(root);
   return 0;
 }`}
                         </pre>

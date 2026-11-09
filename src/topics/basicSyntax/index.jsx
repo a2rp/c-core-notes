@@ -47,15 +47,19 @@ const BasicSyntax = () => {
                 <div className="section">
                     <h3 className="h3">printf and scanf</h3>
                     <p className="p">
-                        printf prints output. scanf reads input from user.
+                        printf prints formatted output. scanf reads formatted
+                        input; check its return value before using the result.
                     </p>
                     <pre className="code">{`#include <stdio.h>
 
 int main() {
   int age;
   printf("Enter age: ");
-  scanf("%d", &age);
-  printf("You entered %d\\n", age);
+  if (scanf("%d", &age) == 1) {
+    printf("You entered %d\\n", age);
+  } else {
+    printf("Please enter a valid integer.\\n");
+  }
   return 0;
 }
 

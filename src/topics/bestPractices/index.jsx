@@ -156,7 +156,7 @@ int main() {
     return 0;
   }
 
-  int *arr = (int*)malloc(sizeof(int) * n);
+  int *arr = malloc(sizeof *arr * (size_t)n);
   if (arr == NULL) {
     printf("Allocation failed\\n");
     return 0;
@@ -203,11 +203,11 @@ int main() {
   // unsafe - never use gets
   // gets(name);
 
-  // safe - reads up to sizeof(name) - 1 chars
-  fgets(name, sizeof(name), stdin);
-
-  printf("%s", name);
-  // output - whatever user typed (up to 9 chars + \\0)
+  // reads at most sizeof(name) - 1 characters
+  if (fgets(name, sizeof(name), stdin) != NULL) {
+    printf("%s", name);
+    // output - the captured input, up to 9 characters
+  }
   return 0;
 }`}
                         </pre>
